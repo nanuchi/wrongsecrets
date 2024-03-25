@@ -20,9 +20,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CanariesController {
 
-  @Autowired CanaryCounter canaryCounter;
+  final CanaryCounter canaryCounter;
 
-  @PostMapping(path = "/canaries/tokencallback", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public CanariesController(CanaryCounter canaryCounter) {
+        this.canaryCounter = canaryCounter;
+    }
+
+    @PostMapping(path = "/canaries/tokencallback", consumes = MediaType.APPLICATION_JSON_VALUE)
   @Operation(
       summary = "Callback method for canarytokens.com",
       requestBody =

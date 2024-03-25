@@ -23,8 +23,8 @@ import org.thymeleaf.templateresource.StringTemplateResource;
 public class ChallengeUiTemplateResolver extends FileTemplateResolver {
 
   private static final String PREFIX = "ui-snippet:";
-  private ResourceLoader resourceLoader;
-  private Map<String, byte[]> resources = new HashMap<>();
+  private final ResourceLoader resourceLoader;
+  private final Map<String, byte[]> resources = new HashMap<>();
 
   public ChallengeUiTemplateResolver(ResourceLoader resourceLoader) {
     this.resourceLoader = resourceLoader;
