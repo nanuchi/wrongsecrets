@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class StatsController {
 
-  @Autowired private CanaryCounter canaryCounter;
-  @Autowired private SessionConfiguration sessionConfiguration;
+  private final CanaryCounter canaryCounter;
+  private SessionConfiguration sessionConfiguration;
 
   @Value("${hints_enabled}")
   private boolean hintsEnabled;
@@ -39,7 +39,16 @@ public class StatsController {
   @Value("${springdoc.swagger-ui.path}")
   private String swaggerURI;
 
-  @GetMapping("/stats")
+    public StatsController(CanaryCounter canaryCounter) {
+        this.canaryCounter = canaryCounter;
+    }
+
+    @Autowired
+    public StatsController(SessionConfiguration sessionConfiguration) {
+        this.sessionConfiguration = sessionConfiguration;
+    }
+
+    @GetMapping("/stats")
   @Operation(description = "Returns all dynamic data for the stats screen")
   public String getStats(Model model) {
     model.addAttribute("canaryCounter", canaryCounter.getTotalCount());

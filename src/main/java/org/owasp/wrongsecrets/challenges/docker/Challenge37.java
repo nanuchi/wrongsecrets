@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Challenge37 extends FixedAnswerChallenge {
 
-  private String secret;
+  private final String secret;
   private static final String password = "YjNCbGJpQnpaWE5oYldVPQo=";
 
   public Challenge37() {
