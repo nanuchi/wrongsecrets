@@ -60,7 +60,7 @@ public class SecurityConfig {
     http.authorizeHttpRequests(
             authorize ->
                 authorize
-                    .requestMatchers(patterns.toArray(new String[patterns.size()]))
+                    .requestMatchers(patterns.toArray(new String[0]))
                     .authenticated()
                     .anyRequest()
                     .permitAll())

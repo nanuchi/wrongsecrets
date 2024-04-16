@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * This is a challenge based on LLM where people need to extract the secret from
- * https://https://gandalf.lakera.ai//
+ * <a href="https://https://gandalf.lakera.ai//">...</a>
  */
 @Slf4j
 @Component
