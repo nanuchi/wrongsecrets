@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Challenge36 implements Challenge {
   private final BinaryExecutionHelper binaryExecutionHelper;
-  private String executable;
+  private final String executable;
 
   public Challenge36() {
     this.executable = "wrongsecrets-advanced-c";

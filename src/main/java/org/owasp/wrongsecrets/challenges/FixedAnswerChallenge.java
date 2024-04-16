@@ -16,7 +16,7 @@ import java.util.Objects;
  */
 public abstract class FixedAnswerChallenge implements Challenge {
 
-  private Supplier<String> cachedAnswer = Suppliers.memoize(() -> getAnswer());
+  private final Supplier<String> cachedAnswer = Suppliers.memoize(() -> getAnswer());
 
   @Override
   public final Spoiler spoiler() {

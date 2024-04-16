@@ -43,10 +43,7 @@ public class RuntimeEnvironment {
     if (isVaultUnlockedInCTFMode() && isK8sUnlockedInCTFMode()) {
       return challengeDefinition.supportedEnvironments().contains(runtimeEnvironment);
     }
-    if (isK8sUnlockedInCTFMode()) {
-      return challengeDefinition.supportedEnvironments().contains(runtimeEnvironment);
-    }
-    return challengeDefinition.supportedEnvironments().contains(this.runtimeEnvironment);
+      return challengeDefinition.supportedEnvironments().contains(this.runtimeEnvironment);
   }
 
   public boolean runtimeInCTFMode() {
@@ -85,8 +82,8 @@ public class RuntimeEnvironment {
                       challengeDefinitions.environments().stream()
                           .map(Environment::name)
                           .collect(Collectors.joining()));
-                  throw new MissingEnvironmentException(
-                      currentRuntimeEnvironment, challengeDefinitions.environments());
+                    return new MissingEnvironmentException(
+                        currentRuntimeEnvironment, challengeDefinitions.environments());
                 });
     return new RuntimeEnvironment(runtimeEnvironment);
   }
